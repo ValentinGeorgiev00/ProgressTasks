@@ -1,0 +1,42 @@
+  <button kendoButton (click)="open()">{{type === 'add' ?'ADD' : 'EDIT'}}</button>
+<kendo-dialog
+      [title]="type === 'add' ?'Add Item' : 'Edit Item'"
+      *ngIf="opened"
+      (close)="close()"
+      [minWidth]="250"
+      [width]="450"
+    >
+     <form [formGroup]="form" (submit)="onSubmit()">
+
+<ng-container >
+  <ul> 
+    <li>
+<label for="name">Name: </label>
+<input id="name" type="text" formControlName="name">
+  </li>
+     <li>
+<label for="email">Email: </label>
+<input id="email" type="text" formControlName="email">
+  </li>
+     <li>
+<label for="phone">Phone: </label>
+<input id="phone" type="text" formControlName="phone">
+  </li>
+     <li>
+<label for="username">Username: </label>
+<input id="username" type="text" formControlName="username">
+  </li>
+     <li>
+<label for="website">Website: </label>
+<input id="website" type="text" formControlName="website">
+  </li>
+</ul> 
+
+ <kendo-dialog-actions>
+        <button kendoButton (click)="close()">Cancel</button>
+        <button kendoButton type="submit" [primary]="true">Submit</button>
+      </kendo-dialog-actions>
+</ng-container>
+</form>
+     
+    </kendo-dialog>

@@ -1,0 +1,48 @@
+
+<kendo-grid
+      [kendoGridBinding]="gridView"
+      kendoGridSelectBy="id"
+      [pageSize]="5"
+      [pageable]="true"
+      [sortable]="true"
+      [groupable]="true"
+      [reorderable]="true"
+      [resizable]="true"
+      [height]="500"
+    >
+      <ng-template kendoGridToolbarTemplate >
+        <label for="">{{!checked ? "Hide" : "Hidden"}}</label>
+      <kendo-switch  [checked]="checked" (valueChange)="onChange($event)" offLabel=" " onLabel=" " ></kendo-switch>
+      <app-add-edit type='add' ></app-add-edit>
+      <kendo-grid-column-group title="User" [columnMenu]="false" >
+        <kendo-grid-column field="name" title="Name" [width]="180" >
+          
+          <ng-template kendoGridCellTemplate let-dataItem>  
+            <div class="customer-name">{{ dataItem.name }}</div>
+          </ng-template>
+        </kendo-grid-column>
+            <kendo-grid-column field="username" *ngIf="!checked" title="Username" [width]="180">
+        </kendo-grid-column>
+              <kendo-grid-column field="email" title="Email" [width]="180">
+        </kendo-grid-column>
+           
+     <kendo-grid-column field="phone" title="Phone" [width]="180">
+        </kendo-grid-column>
+    
+          <kendo-grid-column field="website" title="website" [width]="180">
+        </kendo-grid-column>
+        <kendo-grid-column field="actions" title="Actions" [width]="180">
+          
+          <ng-template kendoGridCellTemplate let-dataItem>  
+          <app-add-edit type='edit' [dataItem]="dataItem"></app-add-edit>
+          </ng-template>
+        </kendo-grid-column>
+   </kendo-grid-column-group>
+   </ng-template>
+   </kendo-grid>  
+     
+
+     
+  
+  
+  

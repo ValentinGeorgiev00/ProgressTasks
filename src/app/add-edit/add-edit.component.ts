@@ -14,8 +14,6 @@ import { UsersService } from '../services/users.service';
  
 })
 export class AddEditComponent implements OnInit {
-  hide = true;
-  auth!: string;
   form!: FormGroup;
   user!: User;
 
@@ -30,7 +28,6 @@ export class AddEditComponent implements OnInit {
       username: new FormControl(this.dataItem?.username ?? '', Validators.required),
     email: new FormControl(this.dataItem?.email ?? '', Validators.required),
 phone: new FormControl(this.dataItem?.phone ?? '', Validators.required),
-
 website: new FormControl(this.dataItem?.website ?? '', Validators.required),
     });
   }
